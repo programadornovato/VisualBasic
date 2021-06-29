@@ -6,23 +6,12 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Sub Main(args As String())
-        Dim stringExplicita As String = "Hola mundo"
-        Dim stringImplicita = "Hola mundo"
-        Console.WriteLine("stringExplicita=" & stringExplicita.GetType.ToString())
-        Console.WriteLine("stringImplicita=" & stringImplicita.GetType.ToString())
-
-        Dim intExplicita As Integer = 5
-        Dim intImplicita = 5
-        Console.WriteLine("intExplicita=" & intExplicita.GetType.ToString())
-        Console.WriteLine("intImplicita=" & intImplicita.GetType.ToString())
-
-        Dim floatExplicita As Single = 5
-        Dim floatImplicita = 5.0F
-        Console.WriteLine("floatExplicita=" & floatExplicita.GetType.ToString())
-        Console.WriteLine("floatImplicita=" & floatImplicita.GetType.ToString())
-
-        Dim doubleImplicita = 5.0
-        Console.WriteLine("doubleImplicita=" & doubleImplicita.GetType.ToString())
+        Dim miPagina = "ProgramadorNovato.com"
+        'miPagina = miPagina.ToUpper()
+        'miPagina = miPagina.ToLower()
+        miPagina = miPagina.Replace(".com", ".mx")
+        Dim miPresentacion = "Esta es mi pagina web: "
+        Console.WriteLine(miPresentacion & miPagina)
         Console.Read()
     End Sub
 End Module
