@@ -6,21 +6,23 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Sub Main(args As String())
-        Dim num1 As Integer = 1
-        Dim num2 As Integer = 1
-        Dim suma As Integer = num1 + num2
-        Dim num3 As Integer = 1, num4 As Integer = 2, num5 As Integer = 3
-        Dim valD1 As Double = 5.5
-        Dim valD2 As Double = 6.6
-        Dim sumaD As Double = valD1 + valD2
-        Dim valFloat As Single = 5.5F
-        Dim sumaFD = sumaD + valFloat
+        Dim stringExplicita As String = "Hola mundo"
+        Dim stringImplicita = "Hola mundo"
+        Console.WriteLine("stringExplicita=" & stringExplicita.GetType.ToString())
+        Console.WriteLine("stringImplicita=" & stringImplicita.GetType.ToString())
 
-        Console.WriteLine(num1 & "+" & num2 & " =" & suma)
-        Console.WriteLine(valD1 & "+" & valD2 & " =" & sumaD)
-        Console.WriteLine("suma es de tipo " & suma.GetType.ToString())
-        Console.WriteLine("sumaFD es del tipo " & sumaFD.GetType.ToString())
+        Dim intExplicita As Integer = 5
+        Dim intImplicita = 5
+        Console.WriteLine("intExplicita=" & intExplicita.GetType.ToString())
+        Console.WriteLine("intImplicita=" & intImplicita.GetType.ToString())
 
+        Dim floatExplicita As Single = 5
+        Dim floatImplicita = 5.0F
+        Console.WriteLine("floatExplicita=" & floatExplicita.GetType.ToString())
+        Console.WriteLine("floatImplicita=" & floatImplicita.GetType.ToString())
+
+        Dim doubleImplicita = 5.0
+        Console.WriteLine("doubleImplicita=" & doubleImplicita.GetType.ToString())
         Console.Read()
     End Sub
 End Module
