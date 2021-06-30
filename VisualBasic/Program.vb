@@ -6,13 +6,23 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Sub Main(args As String())
-        Const PI = 3.1416
-        Const semanas = 52, meses = 12, diasSemana = 7
-        Const pagina = "programadornovato.com"
-        'PI = 3.12
-        Dim PIx2 = PI * 2
-        Console.WriteLine("PIx2=" & PIx2)
-        Console.WriteLine(pagina)
+        Dim num1 = 5
+        Dim num2 = 3
+
+        Dim suma = num1 + num2
+        Console.WriteLine("suma=" & suma)
+
+        Dim resta = num1 - num2
+        Console.WriteLine("resta=" & resta)
+
+        Dim divicion = num1 / num2
+        Console.WriteLine("divicion=" & divicion & " " & divicion.GetType.ToString)
+
+        Dim residio = num1 Mod num2
+        Console.WriteLine("residio=" & residio)
+
+        Dim mul = num1 * num2
+        Console.WriteLine("mul=" & residio)
 
 
         Console.Read()
