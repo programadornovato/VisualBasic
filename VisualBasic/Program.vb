@@ -6,19 +6,14 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Sub Main(args As String())
-        'Dim a = False
-        'Dim b = False
-        'Dim res = a Or b
-        'Console.WriteLine(res)
+        Const PI = 3.1416
+        Const semanas = 52, meses = 12, diasSemana = 7
+        Const pagina = "programadornovato.com"
+        'PI = 3.12
+        Dim PIx2 = PI * 2
+        Console.WriteLine("PIx2=" & PIx2)
+        Console.WriteLine(pagina)
 
-        'Dim a = False
-        'Dim b = False
-        'Dim res = a And b
-        'Console.WriteLine(res)
-
-        Dim a = False
-        Dim res = Not a
-        Console.WriteLine(res)
 
         Console.Read()
     End Sub
