@@ -5,26 +5,15 @@ Imports System
 'Este modulo sirve para enseñar como funciona Visual Basic.NET
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
-    Sub Main(args As String())
-        Dim num1 = 5
-        Dim num2 = 3
-
-        Dim suma = num1 + num2
-        Console.WriteLine("suma=" & suma)
-
-        Dim resta = num1 - num2
-        Console.WriteLine("resta=" & resta)
-
-        Dim divicion = num1 / num2
-        Console.WriteLine("divicion=" & divicion & " " & divicion.GetType.ToString)
-
-        Dim residio = num1 Mod num2
-        Console.WriteLine("residio=" & residio)
-
-        Dim mul = num1 * num2
-        Console.WriteLine("mul=" & residio)
-
-
+    Public Sub Main(args As String())
+        saluda()
+        despide("Adios novato")
         Console.Read()
+    End Sub
+    Private Sub saluda()
+        Console.WriteLine("Hola humano como estas?")
+    End Sub
+    Sub despide(ByVal texto)
+        Console.WriteLine(texto)
     End Sub
 End Module
