@@ -7,13 +7,15 @@ Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
         saluda()
-        despide("Adios novato")
+        Dim nombre = "Juan", apellido = "Peres"
+        Dim nombreCompleto = nombre + " " + apellido
+        Console.WriteLine(nombreCompleto)
+        apellido = "Perez"
+        nombreCompleto = nombre + " " + apellido
+        Console.WriteLine(nombreCompleto)
         Console.Read()
     End Sub
-    Private Sub saluda()
-        Console.WriteLine("Hola humano como estas?")
-    End Sub
-    Sub despide(ByVal texto)
-        Console.WriteLine(texto)
+    Sub saluda()
+        Console.WriteLine("Hola humano")
     End Sub
 End Module
