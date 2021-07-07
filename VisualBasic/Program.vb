@@ -6,20 +6,23 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim edad = calculaEdad(1970)
-        Console.WriteLine("La edad del humano es de " & edad & " años")
-        Dim año = añoNacimiento(20)
-        Console.WriteLine("El año de nacimiento del humano es de " & año)
+        Console.WriteLine("Math.PI=" & Math.PI)
+        Console.WriteLine("Math.E=" & Math.E)
+        Console.WriteLine("Math.Min(5.5,3.5)=" & Math.Min(5.5, 3.5))
+        Console.WriteLine("Math.Max(5.5,3.5)=" & Math.Max(5.5, 3.5))
+        Console.WriteLine("Math.Round(5.5)=" & Math.Round(5.5))
+        Console.WriteLine("Math.Round(-5.5)=" & Math.Round(-5.5))
+        Console.WriteLine("Math.Ceiling(5.5)=" & Math.Ceiling(5.5))
+        Console.WriteLine("Math.Ceiling(-5.5)=" & Math.Ceiling(-5.5))
+        Console.WriteLine("Math.Floor(5.5)=" & Math.Floor(5.5))
+        Console.WriteLine("Math.Floor(-5.5)=" & Math.Floor(-5.5))
+        Console.WriteLine("Math.Truncate(-5.5)=" & Math.Truncate(-5.5))
+        Console.WriteLine("Math.Abs(-5.5)=" & Math.Abs(-5.5))
+        Console.WriteLine("Math.Abs(5.5)=" & Math.Abs(5.5))
+        Console.WriteLine("Math.Sign(-5.5)=" & Math.Sign(-5.5))
+        Console.WriteLine("Math.Sign(5.5)=" & Math.Sign(5.5))
+        Console.WriteLine("Math.Pow(3,3)=" & Math.Pow(3, 3))
+        Console.WriteLine("Math.Sqrt(9)=" & Math.Sqrt(9))
         Console.Read()
     End Sub
-    Function calculaEdad(ByVal añoNacimiento)
-        Dim añoActual = DateTime.Now.Year
-        Return añoActual - añoNacimiento
-        'Console.WriteLine("La edad del humano que nacio en " & añoNacimiento & " es de " & edad & " años")
-        'Console.WriteLine(añoActual.GetType.ToString)
-    End Function
-    Function añoNacimiento(ByVal edad)
-        Dim añoActual = DateTime.Now.Year
-        Return añoActual - edad
-    End Function
 End Module
