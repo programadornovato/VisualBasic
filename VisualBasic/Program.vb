@@ -6,16 +6,13 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        saluda()
-        Dim nombre = "Juan", apellido = "Peres"
-        Dim nombreCompleto = nombre + " " + apellido
-        Console.WriteLine(nombreCompleto)
-        apellido = "Perez"
-        nombreCompleto = nombre + " " + apellido
-        Console.WriteLine(nombreCompleto)
+        calculaEdad(1970)
         Console.Read()
     End Sub
-    Sub saluda()
-        Console.WriteLine("Hola humano")
+    Sub calculaEdad(ByVal añoNacimiento)
+        Dim añoActual = DateTime.Now.Year
+        Dim edad = añoActual - añoNacimiento
+        Console.WriteLine("La edad del humano que nacio en " & añoNacimiento & " es de " & edad & " años")
+        'Console.WriteLine(añoActual.GetType.ToString)
     End Sub
 End Module
