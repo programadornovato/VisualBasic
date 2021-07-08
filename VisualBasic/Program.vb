@@ -6,18 +6,26 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano, por favor, ingresa un numero entre 0 y 10")
-        Dim cal = Double.Parse(Console.ReadLine())
-        Dim calRedondeada = Convert.ToInt32(Math.Round(cal))
-        If (calRedondeada >= 0) AndAlso (calRedondeada < 6) Then
-            Console.WriteLine("El alumno se chingo")
-        ElseIf calRedondeada >= 6 AndAlso calRedondeada <= 9 Then
-            Console.WriteLine("El alumno YA chingo")
-        ElseIf calRedondeada = 10 Then
-            Console.WriteLine("El alumno es una v3rg4")
-        Else
-            Console.WriteLine("Humano estupido te pedi un numero entre 0 y 10 y me entragas un " & calRedondeada)
-        End If
+        Console.WriteLine("Humano por favor ingrese un numero entre 1 y 7")
+        Dim dia = Integer.Parse(Console.ReadLine())
+        Select Case dia
+            Case 1
+                Console.WriteLine("Humano seleccionaste el lunes")
+            Case 2
+                Console.WriteLine("Humano seleccionaste el martes")
+            Case 3
+                Console.WriteLine("Humano seleccionaste el miercoles")
+            Case 4
+                Console.WriteLine("Humano seleccionaste el jueves")
+            Case 5
+                Console.WriteLine("Humano seleccionaste el viernes")
+            Case 6
+                Console.WriteLine("Humano seleccionaste el sabado")
+            Case 7
+                Console.WriteLine("Humano seleccionaste el domingo")
+            Case Else
+                Console.WriteLine("Humano estupido te pedi un NUMERO ENTRE 1 y 7")
+        End Select
         Console.Read()
     End Sub
 End Module
