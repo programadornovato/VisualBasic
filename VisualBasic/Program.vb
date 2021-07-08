@@ -6,26 +6,18 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano por favor ingrese un numero entre 1 y 7")
-        Dim dia = Integer.Parse(Console.ReadLine())
-        Select Case dia
-            Case 1
-                Console.WriteLine("Humano seleccionaste el lunes")
-            Case 2
-                Console.WriteLine("Humano seleccionaste el martes")
-            Case 3
-                Console.WriteLine("Humano seleccionaste el miercoles")
-            Case 4
-                Console.WriteLine("Humano seleccionaste el jueves")
-            Case 5
-                Console.WriteLine("Humano seleccionaste el viernes")
-            Case 6
-                Console.WriteLine("Humano seleccionaste el sabado")
-            Case 7
-                Console.WriteLine("Humano seleccionaste el domingo")
-            Case Else
-                Console.WriteLine("Humano estupido te pedi un NUMERO ENTRE 1 y 7")
-        End Select
+        Try
+            Console.WriteLine("Por favor humano ingresa un NUMERO:")
+            Dim numeroS = Console.ReadLine()
+            Dim numeroI = Integer.Parse(numeroS)
+            Dim cuadrado = numeroI * numeroI
+            Console.WriteLine("Humano el numero " & numeroI & " al cuadrado es:" & cuadrado)
+        Catch ex As Exception
+            Console.WriteLine("Humano estupido te pedi un NUMERO " & ex.ToString())
+        Finally
+            Console.WriteLine("Se ejecuto Finally")
+        End Try
+
         Console.Read()
     End Sub
 End Module
