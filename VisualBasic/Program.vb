@@ -7,27 +7,40 @@ Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
         Try
-            Console.WriteLine("¿Humano con cuantos litros de cerveza te emborrachas?")
-            Dim litros = Integer.Parse(Console.ReadLine())
-            Dim mililitros = litros * 1000
-            Console.WriteLine("¿Humano cual es el diametro de tu vaso?")
-            Dim D = Integer.Parse(Console.ReadLine())
-            Console.WriteLine("¿Humano cual es la altura de tu vaso?")
-            Dim A = Integer.Parse(Console.ReadLine())
-            Dim R = D / 2
-            Dim V = Math.PI * R * 2 * A
-            Dim vasosLimite = mililitros / V
+            Console.WriteLine("Hola humano, bienvenido al banco pn")
+            Console.WriteLine("Selecciona alguna de las siguientes opciones")
+            Console.WriteLine("1.- Ver saldo")
+            Console.WriteLine("2.- Ingresar dinero")
+            Console.WriteLine("3.- Sacar dinero")
+            Console.WriteLine("4.- Salir")
+            Dim opcion = Integer.Parse(Console.ReadLine())
+            Dim saldoInicial = 100.0
+            Select Case opcion
+                Case 1
+                    Console.WriteLine("Humano tu saldo es de " & saldoInicial)
+                Case 2
+                    Console.WriteLine("Humano cuanto dinero quieres ingresar")
+                    Dim ingresar = Double.Parse(Console.ReadLine())
+                    saldoInicial = saldoInicial + ingresar
+                    Console.WriteLine("Humano haz ingresado " & ingresar & " tu saldo es de " & saldoInicial)
+                Case 3
+                    Console.WriteLine("Humano cuanto dinero quieres sacar")
+                    Dim sacar = Double.Parse(Console.ReadLine())
+                    If sacar > saldoInicial Then
+                        Console.WriteLine("Humano pillin no cuentas con saldo suficiente")
+                    Else
+                        saldoInicial = saldoInicial - sacar
+                        Console.WriteLine("Humano haz sacado " & sacar & " tu saldo es de " & saldoInicial)
+                    End If
+                Case 4
+                    Console.WriteLine("Adios humano gracias por usr el pn")
+                Case Else
+                    Console.WriteLine("Humano estupido te pedi que seleccionar alguna de las opciones")
 
-            'Console.WriteLine("V=" & V & "  vasosLimite=" & vasosLimite)
-            Console.WriteLine("¿Humano cunatos vasos de cerveza has tomado?")
-            Dim vasosTomados = Integer.Parse(Console.ReadLine())
-            If vasosTomados <= vasosLimite Then
-                Console.WriteLine("Humano te hacen falta " & vasosLimite - vasosTomados & " vasos para estar borracho")
-            Else
-                Console.WriteLine("Humano ya te exediste con " & vasosTomados - vasosLimite & " vasos YA ESTAS BORRACHO")
-            End If
+            End Select
+
         Catch ex As Exception
-            Console.WriteLine("¡¡¡HUMANO YA ESTAS TAN BORRACHO QUE NI PUEDES ESCRIBIR UN NUMERO!!!")
+            Console.WriteLine("Humano te pedi un numero valido " & ex.ToString)
         End Try
 
         Console.Read()
