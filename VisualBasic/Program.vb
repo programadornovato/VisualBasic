@@ -6,19 +6,25 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano cual es tu fecha de nacimiento en formato dd/MM/yyyy")
-        Dim fechaNacimientoString = Console.ReadLine()
-        'Dim fechaNacimientoDate As DateTime
-        Try
-            Dim fechaNacimientoDate = DateTime.ParseExact(fechaNacimientoString, "dd/MM/yyyy", Nothing)
-            Dim fechaHoy = DateTime.Now
-            Dim diferencia = fechaHoy - fechaNacimientoDate
-            Dim dias = diferencia.TotalDays
-            Dim años = Math.Floor(dias / 365)
-            Console.WriteLine("Humano tu tienes " & años & " años")
-        Catch ex As Exception
-            Console.WriteLine("Humano estupido te pedi una fecha en formato dd/MM/yyyy")
-        End Try
+        'Console.WriteLine("Humano por favor escribe alguno de estos textos " & vbLf & "acceso" & vbLf & "configuraciones" & vbLf & "salir")
+        'Dim seleccion = Console.ReadLine()
+        'Select Case seleccion.ToLower
+        '    Case "acceso"
+        '        Console.WriteLine("Humano seleccionaste acceso")
+        '    Case "configuraciones"
+        '        Console.WriteLine("Humano seleccionaste configuraciones")
+        '    Case "salir"
+        '        Console.WriteLine("Humano seleccionaste salir")
+        '    Case Else
+        '        Console.WriteLine("Humano estupido te pedi que escribieras alguna de las opciones")
+        'End Select
+        Console.WriteLine("Humano por favor saludame con un hola")
+        Dim saludo = Console.ReadLine()
+        If saludo.ToLower = "hola" Then
+            Console.WriteLine("Hola humano")
+        Else
+            Console.WriteLine("No te entiendo humano")
+        End If
         Console.Read()
     End Sub
 End Module
