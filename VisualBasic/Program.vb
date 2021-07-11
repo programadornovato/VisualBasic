@@ -6,24 +6,25 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        'Console.WriteLine("Humano por favor escribe alguno de estos textos " & vbLf & "acceso" & vbLf & "configuraciones" & vbLf & "salir")
-        'Dim seleccion = Console.ReadLine()
-        'Select Case seleccion.ToLower
-        '    Case "acceso"
-        '        Console.WriteLine("Humano seleccionaste acceso")
-        '    Case "configuraciones"
-        '        Console.WriteLine("Humano seleccionaste configuraciones")
-        '    Case "salir"
-        '        Console.WriteLine("Humano seleccionaste salir")
-        '    Case Else
-        '        Console.WriteLine("Humano estupido te pedi que escribieras alguna de las opciones")
-        'End Select
-        Console.WriteLine("Humano por favor saludame con un hola")
-        Dim saludo = Console.ReadLine()
-        If saludo.ToLower = "hola" Then
-            Console.WriteLine("Hola humano")
+        Dim entro = False
+        Console.WriteLine("Humano ingresa un numero entre 1 y 999:")
+        Dim num = Integer.Parse(Console.ReadLine())
+        If num >= 1 And num <= 9 Then
+            Console.WriteLine("Humano tu numero " & num & " es de tipo unidad")
+            entro = True
         Else
-            Console.WriteLine("No te entiendo humano")
+            If num >= 10 And num <= 99 Then
+                Console.WriteLine("Humano tu numero " & num & " es de tipo decena")
+                entro = True
+            Else
+                If num >= 100 And num <= 999 Then
+                    Console.WriteLine("Humano tu numero " & num & " es de tipo centena")
+                    entro = True
+                End If
+            End If
+        End If
+        If entro = False Then
+            Console.WriteLine("Humano estupido tu numero no esta en el rango de 1 y 999")
         End If
         Console.Read()
     End Sub
