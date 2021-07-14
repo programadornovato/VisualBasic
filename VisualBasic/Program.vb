@@ -6,49 +6,30 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        'Console.WriteLine("Hola humano por favor ingresa una de las siguientes opciones")
-        'Console.WriteLine("1.- Acceso")
-        'Console.WriteLine("2.- Configuracion")
-        'Console.WriteLine("3.- Salir")
-        'Dim opcion = Integer.Parse(Console.ReadLine())
-        'While opcion <> 3
-        '    Select Case opcion
-        '        Case 1
-        '            Console.WriteLine("Seleccionaste el acceso")
-        '        Case 2
-        '            Console.WriteLine("Seleccionaste el configuracion")
-        '        Case 3
-        '            Console.WriteLine("Adios humano, te voy a extrañar")
-        '        Case Else
-        '            Console.WriteLine("Humano estupido te pedi que ingresara 1 o 2 o 3")
-        '    End Select
-        '    Console.WriteLine("Hola humano por favor ingresa una de las siguientes opciones")
-        '    Console.WriteLine("1.- Acceso")
-        '    Console.WriteLine("2.- Configuracion")
-        '    Console.WriteLine("3.- Salir")
-        '    opcion = Integer.Parse(Console.ReadLine())
+        'For i = 1 To 5 Step 2
+        '    Console.WriteLine("i=" & i)
+        'Next
+
+        'Dim i = 1
+        'While i <= 5
+        '    Console.WriteLine("i=" & i)
+        '    i = i + 2
         'End While
-        'If opcion = 3 Then
-        '    Console.WriteLine("Adios humano, te voy a extrañar")
-        'End If
-        Dim opcion = 0
-        Do
-            Console.WriteLine("Hola humano por favor ingresa una de las siguientes opciones")
-            Console.WriteLine("1.- Acceso")
-            Console.WriteLine("2.- Configuracion")
-            Console.WriteLine("3.- Salir")
-            opcion = Integer.Parse(Console.ReadLine())
-            Select Case opcion
-                Case 1
-                    Console.WriteLine("Seleccionaste el acceso")
-                Case 2
-                    Console.WriteLine("Seleccionaste el configuracion")
-                Case 3
-                    Console.WriteLine("Adios humano, te voy a extrañar")
-                Case Else
-                    Console.WriteLine("Humano estupido te pedi que ingresara 1 o 2 o 3")
-            End Select
-        Loop While opcion <> 3
+
+        'For i = 5 To 1 Step -2
+        '    Console.WriteLine("i=" & i)
+        'Next
+
+        Console.WriteLine("Humano ingresa el numero de repeticiones")
+        Dim repeticion As Integer
+        Try
+            repeticion = Integer.Parse(Console.ReadLine)
+            For i = 1 To repeticion
+                Console.WriteLine("i=" & i)
+            Next
+        Catch ex As Exception
+            Console.WriteLine("Humano estupido te pedi un numero")
+        End Try
 
         Console.Read()
     End Sub
