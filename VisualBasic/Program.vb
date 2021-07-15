@@ -6,29 +6,22 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano ingresa un palindromo")
-        Dim texto = Console.ReadLine()
-        Dim textoCopia = texto
-        If texto IsNot Nothing Then
-            texto = texto.ToLower()
-            texto = texto.Replace(" ", "")
-            Dim longitud = texto.Length
-            Dim igual = True
-            Dim cont = 0
-            For indice = longitud - 1 To 0 Step -1
-                If (texto(indice) <> texto(cont)) Then
-                    igual = False
-                    Exit For
-                End If
-                cont = cont + 1
-            Next
-            If igual = True Then
-                Console.WriteLine("Felicidades humano el texto " & textoCopia & " si es palindromo")
-            Else
-                Console.WriteLine("Humano estupido el texto " & textoCopia & " no es palindromo")
+        Dim rdn = New Random()
+        Dim aleatorio = rdn.Next(1, 6)
+        Console.WriteLine("Humano por favor ingresa un numero aleatorio entre 1 y 5")
+        Dim numero = Integer.Parse(Console.ReadLine())
+        While aleatorio <> numero
+            Console.WriteLine("Humano estupido el numero que estaba pensando era el " & aleatorio & " intantalo de nuevo o escribe 0 ")
+            numero = Integer.Parse(Console.ReadLine())
+            If numero = 0 Then
+                Exit While
             End If
+            aleatorio = rdn.Next(1, 6)
+        End While
+        If numero = 0 Then
+            Console.WriteLine("Humano ademas de ser estupido eres olgasan el numero que estaba pensano era el " & aleatorio)
         Else
-            Console.WriteLine("humano estupido te pedi que ingresarar un palindo y no escribiste nada")
+            Console.WriteLine("Felicidades humano le atinaste al numero")
         End If
         Console.Read()
     End Sub
