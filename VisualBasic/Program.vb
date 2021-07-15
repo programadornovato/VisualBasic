@@ -6,11 +6,16 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim arreglo = New Integer() {5, 8, 3, 7, 4, 1}
-        Console.WriteLine("El elemento en la posicion 4 es " & arreglo(3))
-        Console.WriteLine("El tamaño es " & arreglo.Length)
-        For i = 0 To arreglo.Length - 1
-            Console.WriteLine("El valor del elemento " & i + 1 & " es " & arreglo(i))
+        Dim perros = New String() {"Monte", "Chupacabras", "Mikey", "Solovino", "El chiquito"}
+        Console.WriteLine("CON FOR")
+        For i = 0 To perros.Length - 1
+            Console.WriteLine("El perro " & i & " es " & perros(i))
+        Next
+        Console.WriteLine("CON FOR EACH")
+        Dim j = 0
+        For Each perro In perros
+            Console.WriteLine("El perro " & j & " es " & perro)
+            j = j + 1
         Next
         Console.Read()
     End Sub
