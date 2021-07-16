@@ -6,22 +6,28 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano ingresa un texto")
-        Dim texto = Console.ReadLine
-        If texto <> "" Then
-            Dim longitud = texto.Length
-            Dim contador = 0
-            Dim caracteres = New Char(longitud - 1) {}
-            For i = longitud - 1 To 0 Step -1
-                caracteres(contador) = texto(i)
-                contador = contador + 1
+        Dim calificaciones = New Double(3) {}
+        Dim semestres = 0
+        Dim suma = 0.0
+        Dim promedio = 0.0
+        Do
+            Console.WriteLine("Humano ingresa la calificacion del semestre " & semestres + 1 & " o preciona enter para salir ")
+            Dim calificacionString = Console.ReadLine()
+            If calificacionString = "" Then
+                Exit Do
+            Else
+                calificaciones(semestres) = Double.Parse(calificacionString)
+                semestres = semestres + 1
+            End If
+        Loop While semestres < 4
+        If semestres > 0 Then
+            For Each cal In calificaciones
+                suma = suma + cal
             Next
-            'For Each caracter In caracteres
-            '    Console.Write(caracter)
-            'Next
-            Console.WriteLine(caracteres)
+            promedio = suma / semestres
+            Console.WriteLine("Humano, la calificacion del alumno es " & promedio)
         Else
-            Console.WriteLine("Humano flojo tu texto no tiene texto")
+            Console.WriteLine("Humano flojo te pedi por lo menos una calificacion ")
         End If
         Console.Read()
     End Sub
