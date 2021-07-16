@@ -6,23 +6,31 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim rdn = New Random()
-        Dim aleatorio = rdn.Next(1, 6)
-        Console.WriteLine("Humano por favor ingresa un numero aleatorio entre 1 y 5")
-        Dim numero = Integer.Parse(Console.ReadLine())
-        While aleatorio <> numero
-            Console.WriteLine("Humano estupido el numero que estaba pensando era el " & aleatorio & " intantalo de nuevo o escribe 0 ")
-            numero = Integer.Parse(Console.ReadLine())
-            If numero = 0 Then
-                Exit While
+        Try
+            Dim contador = 0
+            Dim calificacion = 0.0
+            Dim suma = 0.0
+            Dim promedio = 0.0
+            Dim texto = ""
+            Do
+                Console.WriteLine("Humano por favor ingresa la calificacion del semestre " & (contador + 1) & " para terminar solo preciona enter")
+                texto = Console.ReadLine()
+                If texto <> "" Then
+                    calificacion = Double.Parse(texto)
+                    suma = suma + calificacion
+                    contador = contador + 1
+                End If
+            Loop While texto <> ""
+            If contador > 0 Then
+                promedio = suma / contador
+                Console.WriteLine("Humano tu promedio es de " & promedio)
+            Else
+                Console.WriteLine("Humano ademas de ser burro eres olgazan no ingresate ninguna calificacion")
             End If
-            aleatorio = rdn.Next(1, 6)
-        End While
-        If numero = 0 Then
-            Console.WriteLine("Humano ademas de ser estupido eres olgasan el numero que estaba pensano era el " & aleatorio)
-        Else
-            Console.WriteLine("Felicidades humano le atinaste al numero")
-        End If
+        Catch ex As Exception
+            Console.WriteLine("Humano estupido eso no es un numero " & ex.ToString)
+        End Try
+
         Console.Read()
     End Sub
 End Module
