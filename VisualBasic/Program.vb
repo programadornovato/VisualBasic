@@ -6,21 +6,17 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("humano ingresa un alista de numero separados por coma")
-        Dim tex = Console.ReadLine()
-        Dim mayor = 0
-        Dim listaNumerosString = tex.Split(",")
-        Dim tamaño = listaNumerosString.Length
-        Dim lisitaNumeros = New Integer(tamaño) {}
-        For i = 0 To tamaño - 1
-            lisitaNumeros(i) = Integer.Parse(listaNumerosString(i))
-        Next
-        For Each num In lisitaNumeros
-            If num > mayor Then
-                mayor = num
-            End If
-        Next
-        Console.WriteLine("Humano tu pinche numero mayor es " & mayor)
+        Console.WriteLine("Humano ingresa dos pinches numeros")
+        Console.WriteLine("Ingresa el valor de a")
+        Dim a = Integer.Parse(Console.ReadLine())
+        Console.WriteLine("Ingresa el valor de b")
+        Dim b = Integer.Parse(Console.ReadLine())
+        Dim tem = a
+        a = b
+        b = tem
+        Console.WriteLine("a=" & a)
+        Console.WriteLine("b=" & b)
+
         Console.Read()
     End Sub
 End Module
