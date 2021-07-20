@@ -6,39 +6,35 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("humano ingresa un alista de numero separados por coma")
-        Dim texto = Console.ReadLine()
-        Dim listaNumerosTexto As String() = texto.Split(",")
-        Dim cantidad As Integer = listaNumerosTexto.Length
-        Dim listaNumeros As Integer() = New Integer(cantidad - 1) {}
-        For i = 0 To cantidad - 1
-            listaNumeros(i) = Integer.Parse(listaNumerosTexto(i))
+        Dim listaNumeros = New Integer(4) {}
+        For i = 0 To listaNumeros.Length - 1
+            Console.WriteLine("Humano, ingresa el elemento " & (i + 1))
+            listaNumeros(i) = Integer.Parse(Console.ReadLine())
         Next
+        Dim menor = 0
+        Dim pos = 0
         Dim tem = 0
-        Dim bandera = True
-        Dim cont = 0
-        For i = 0 To cantidad - 2
-            If bandera = False Then
-                Exit For
-            End If
-            bandera = False
-            For j = 0 To cantidad - 2
-                If (listaNumeros(j) > listaNumeros(j + 1)) Then
-                    bandera = True
-                    tem = listaNumeros(j)
-                    listaNumeros(j) = listaNumeros(j + 1)
-                    listaNumeros(j + 1) = tem
+        For i = 0 To listaNumeros.Length - 2
+            menor = listaNumeros(i)
+            pos = i
+            For j = i + 1 To listaNumeros.Length - 1
+                If listaNumeros(j) < menor Then
+                    menor = listaNumeros(j)
+                    pos = j
                 End If
-                cont = cont + 1
             Next
+            If pos <> i Then
+                tem = listaNumeros(i)
+                listaNumeros(i) = listaNumeros(pos)
+                listaNumeros(pos) = tem
+            End If
         Next
-        Console.WriteLine("Vueltas=" & cont)
-        Console.WriteLine("Humano aqui esta tu pinche lista de nuemro ordenada de forma acendente")
-        For i = 0 To cantidad - 1
+        Console.WriteLine("Humano aqui esta tu pinche lista de numeros ordenado de forma acendente")
+        For i = 0 To listaNumeros.Length - 1
             Console.WriteLine(listaNumeros(i))
         Next
-        Console.WriteLine("Humano aqui esta tu pinche lista de nuemro ordenada de forma decendente")
-        For i = cantidad - 1 To 0 Step -1
+        Console.WriteLine("Humano aqui esta tu pinche lista de numeros ordenado de forma decndente")
+        For i = listaNumeros.Length - 1 To 0 Step -1
             Console.WriteLine(listaNumeros(i))
         Next
         Console.Read()
