@@ -15,15 +15,24 @@ Module Program
             listaNumeros(i) = Integer.Parse(listaNumerosTexto(i))
         Next
         Dim tem = 0
+        Dim bandera = True
+        Dim cont = 0
         For i = 0 To cantidad - 2
+            If bandera = False Then
+                Exit For
+            End If
+            bandera = False
             For j = 0 To cantidad - 2
                 If (listaNumeros(j) > listaNumeros(j + 1)) Then
+                    bandera = True
                     tem = listaNumeros(j)
                     listaNumeros(j) = listaNumeros(j + 1)
                     listaNumeros(j + 1) = tem
                 End If
+                cont = cont + 1
             Next
         Next
+        Console.WriteLine("Vueltas=" & cont)
         Console.WriteLine("Humano aqui esta tu pinche lista de nuemro ordenada de forma acendente")
         For i = 0 To cantidad - 1
             Console.WriteLine(listaNumeros(i))
