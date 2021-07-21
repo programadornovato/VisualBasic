@@ -6,37 +6,27 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim listaNumeros = New Integer(4) {}
+        Console.WriteLine("Humano ingresa el valor objetivo")
+        Dim numeroBuscar = Integer.Parse(Console.ReadLine())
+        Dim listaNumeros = New Integer(6) {}
         For i = 0 To listaNumeros.Length - 1
-            Console.WriteLine("Humano, ingresa el elemento " & (i + 1))
+            Console.WriteLine("Humano ingresa el valor del elemento " & i + 1)
             listaNumeros(i) = Integer.Parse(Console.ReadLine())
         Next
-        Dim menor = 0
         Dim pos = 0
-        Dim tem = 0
-        For i = 0 To listaNumeros.Length - 2
-            menor = listaNumeros(i)
-            pos = i
-            For j = i + 1 To listaNumeros.Length - 1
-                If listaNumeros(j) < menor Then
-                    menor = listaNumeros(j)
-                    pos = j
-                End If
-            Next
-            If pos <> i Then
-                tem = listaNumeros(i)
-                listaNumeros(i) = listaNumeros(pos)
-                listaNumeros(pos) = tem
+        Dim bandera = False
+        While pos < listaNumeros.Length And bandera = False
+            If listaNumeros(pos) = numeroBuscar Then
+                bandera = True
+                Exit While
             End If
-        Next
-        Console.WriteLine("Humano aqui esta tu pinche lista de numeros ordenado de forma acendente")
-        For i = 0 To listaNumeros.Length - 1
-            Console.WriteLine(listaNumeros(i))
-        Next
-        Console.WriteLine("Humano aqui esta tu pinche lista de numeros ordenado de forma decndente")
-        For i = listaNumeros.Length - 1 To 0 Step -1
-            Console.WriteLine(listaNumeros(i))
-        Next
+            pos = pos + 1
+        End While
+        If bandera = True Then
+            Console.WriteLine("Humano el valor " & numeroBuscar & " estaba en la posicion " & pos + 1)
+        Else
+            Console.WriteLine("Humano estupido el numero " & numeroBuscar & " no esta en la lista")
+        End If
         Console.Read()
     End Sub
 End Module
