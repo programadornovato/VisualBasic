@@ -10,34 +10,30 @@ Module Program
         Dim fil = Integer.Parse(Console.ReadLine())
         Console.WriteLine("Humano cuantas columnas tiene tu matriz")
         Dim col = Integer.Parse(Console.ReadLine())
-        If fil = col Then
-            Dim matriz = New Integer(fil - 1, col - 1) {}
-            For i = 0 To fil - 1
-                For j = 0 To col - 1
-                    Console.WriteLine("Matriz(" & i + 1 & "," & j + 1 & ")")
-                    matriz(i, j) = Integer.Parse(Console.ReadLine())
-                Next
+        Dim matriz = New Integer(fil - 1, col - 1) {}
+        For i = 0 To fil - 1
+            For j = 0 To col - 1
+                Console.WriteLine("Matriz(" & i + 1 & "," & j + 1 & ")")
+                matriz(i, j) = Integer.Parse(Console.ReadLine())
             Next
-            Dim esSimetrica = True
-            For i = 0 To fil - 1
-                For j = 0 To col - 1
-                    If matriz(i, j) <> matriz(j, i) Then
-                        esSimetrica = False
-                        Exit For
-                    End If
-                Next
-                If esSimetrica = False Then
-                    Exit For
-                End If
+        Next
+        Dim sumaFil = 0
+        Dim sumaCol = 0
+        For i = 0 To fil - 1
+            sumaFil = 0
+            For j = 0 To col - 1
+                sumaFil = sumaFil + matriz(i, j)
             Next
-            If esSimetrica = True Then
-                Console.WriteLine("Felicidades humano tu matriz si es simetrica")
-            Else
-                Console.WriteLine("Humano estupido tu matriz no es simetrica")
-            End If
-        Else
-            Console.WriteLine("Humano las filas y las columnas deben ser iguales tambien")
-        End If
+            Console.WriteLine("Suma fila " & i + 1 & "=" & sumaFil)
+        Next
+        Console.WriteLine()
+        For j = 0 To fil - 1
+            sumaCol = 0
+            For i = 0 To col - 1
+                sumaCol = sumaCol + matriz(i, j)
+            Next
+            Console.WriteLine("Suma Columna " & j + 1 & "=" & sumaCol)
+        Next
         Console.Read()
     End Sub
 End Module
