@@ -6,23 +6,33 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim alumnos = New String(6, 1) {}
-        For i = 0 To alumnos.GetLength(0) - 1
-            Console.WriteLine("Humano ingresa el NOMBRE del alumno " & i + 1)
-            alumnos(i, 0) = Console.ReadLine()
-            Console.WriteLine("Humano ingresa el SALON del alumno " & i + 1)
-            alumnos(i, 1) = Console.ReadLine()
+        Dim matrizO = New Integer(2, 2) {}
+        Dim matrizT = New Integer(2, 2) {}
+        For i = 0 To 2
+            For j = 0 To 2
+                Console.WriteLine("humano ingresa el valor de la matriz original (" & i + 1 & "," & j + 1 & ") ")
+                matrizO(i, j) = Integer.Parse(Console.ReadLine())
+            Next
         Next
-        Console.WriteLine("Humano ingresa el SALON de los alumnos que quieres visualizar")
-        Dim salon = Console.ReadLine()
-        For i = 0 To alumnos.GetLength(0) - 1
-            If salon = alumnos(i, 1) Then
-                'Console.Write(alumnos(i, 0) & " | " & alumnos(i, 1))
-                For j = 0 To alumnos.GetLength(1) - 1
-                    Console.Write(alumnos(i, j) & " | ")
-                Next
-                Console.WriteLine()
-            End If
+        For i = 0 To 2
+            For j = 0 To 2
+                matrizT(i, j) = matrizO(j, i)
+            Next
+        Next
+        Console.WriteLine("Humano aqui esta tu pinche matriz original")
+        For i = 0 To 2
+            For j = 0 To 2
+                Console.Write(matrizO(i, j) & " | ")
+            Next
+            Console.WriteLine()
+        Next
+        Console.WriteLine()
+        Console.WriteLine("Humano aqui esta tu pinche matriz transpuesta")
+        For i = 0 To 2
+            For j = 0 To 2
+                Console.Write(matrizT(i, j) & " | ")
+            Next
+            Console.WriteLine()
         Next
         Console.Read()
     End Sub
