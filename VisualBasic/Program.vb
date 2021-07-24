@@ -6,34 +6,48 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Console.WriteLine("Humano cuantas filas tiene tu matriz")
-        Dim fil = Integer.Parse(Console.ReadLine())
-        Console.WriteLine("Humano cuantas columnas tiene tu matriz")
-        Dim col = Integer.Parse(Console.ReadLine())
-        Dim matriz = New Integer(fil - 1, col - 1) {}
-        For i = 0 To fil - 1
-            For j = 0 To col - 1
-                Console.WriteLine("Matriz(" & i + 1 & "," & j + 1 & ")")
-                matriz(i, j) = Integer.Parse(Console.ReadLine())
+        Dim matriz = New Integer(4, 4) {}
+        Dim dato = 1
+        For i = 0 To matriz.GetLength(0) - 1
+            For j = 0 To matriz.GetLength(1) - 1
+                matriz(i, j) = dato
+                dato = dato + 1
             Next
         Next
-        Dim sumaFil = 0
-        Dim sumaCol = 0
-        For i = 0 To fil - 1
-            sumaFil = 0
-            For j = 0 To col - 1
-                sumaFil = sumaFil + matriz(i, j)
+        For i = 0 To matriz.GetLength(0) - 1
+            For j = 0 To matriz.GetLength(1) - 1
+                Console.Write(matriz(i, j) & vbTab)
             Next
-            Console.WriteLine("Suma fila " & i + 1 & "=" & sumaFil)
+            Console.WriteLine()
         Next
+        Dim diagonalPrincipal = New Integer(matriz.GetLength(0) - 1) {}
+        Dim diagonalSecundaria = New Integer(matriz.GetLength(0) - 1) {}
+        For i = 0 To matriz.GetLength(0) - 1
+            For j = 0 To matriz.GetLength(1) - 1
+                If i = j Then
+                    diagonalPrincipal(i) = matriz(i, j)
+                End If
+                If (i + j) = matriz.GetLength(0) - 1 Then
+                    diagonalSecundaria(i) = matriz(i, j)
+                End If
+            Next
+        Next
+        Dim suma = 0
         Console.WriteLine()
-        For j = 0 To fil - 1
-            sumaCol = 0
-            For i = 0 To col - 1
-                sumaCol = sumaCol + matriz(i, j)
-            Next
-            Console.WriteLine("Suma Columna " & j + 1 & "=" & sumaCol)
+        Console.WriteLine("Diagonal principal")
+        For Each numero In diagonalPrincipal
+            Console.Write(numero & vbTab)
+            suma = suma + numero
         Next
+        Console.WriteLine(" = " & suma)
+        suma = 0
+        Console.WriteLine()
+        Console.WriteLine("Diagonal secundaria")
+        For Each numero In diagonalSecundaria
+            Console.Write(numero & vbTab)
+            suma = suma + numero
+        Next
+        Console.WriteLine(" = " & suma)
         Console.Read()
     End Sub
 End Module
