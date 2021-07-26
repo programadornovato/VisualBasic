@@ -6,48 +6,42 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim matriz = New Integer(4, 4) {}
-        Dim dato = 1
-        For i = 0 To matriz.GetLength(0) - 1
-            For j = 0 To matriz.GetLength(1) - 1
-                matriz(i, j) = dato
-                dato = dato + 1
-            Next
-        Next
-        For i = 0 To matriz.GetLength(0) - 1
-            For j = 0 To matriz.GetLength(1) - 1
-                Console.Write(matriz(i, j) & vbTab)
-            Next
-            Console.WriteLine()
-        Next
-        Dim diagonalPrincipal = New Integer(matriz.GetLength(0) - 1) {}
-        Dim diagonalSecundaria = New Integer(matriz.GetLength(0) - 1) {}
-        For i = 0 To matriz.GetLength(0) - 1
-            For j = 0 To matriz.GetLength(1) - 1
-                If i = j Then
-                    diagonalPrincipal(i) = matriz(i, j)
-                End If
-                If (i + j) = matriz.GetLength(0) - 1 Then
-                    diagonalSecundaria(i) = matriz(i, j)
-                End If
-            Next
-        Next
-        Dim suma = 0
-        Console.WriteLine()
-        Console.WriteLine("Diagonal principal")
-        For Each numero In diagonalPrincipal
-            Console.Write(numero & vbTab)
-            suma = suma + numero
-        Next
-        Console.WriteLine(" = " & suma)
-        suma = 0
-        Console.WriteLine()
-        Console.WriteLine("Diagonal secundaria")
-        For Each numero In diagonalSecundaria
-            Console.Write(numero & vbTab)
-            suma = suma + numero
-        Next
-        Console.WriteLine(" = " & suma)
+        Console.WriteLine("Vocho")
+        Dim vocho1 = New Auto()
+        vocho1.color = "Naranja"
+        vocho1.modelo = 1980
+        vocho1.marca = "Vocho"
+        Console.WriteLine(vocho1.color)
+        Console.WriteLine(vocho1.modelo)
+        Console.WriteLine(vocho1.marca)
+        vocho1.enciende()
+        vocho1.acelera()
+        vocho1.frena()
+        Console.WriteLine("Beatle")
+        Dim beattle = New Auto()
+        beattle.color = "Gris"
+        beattle.modelo = 2010
+        beattle.marca = "Beattle"
+        Console.WriteLine(beattle.color)
+        Console.WriteLine(beattle.modelo)
+        Console.WriteLine(beattle.marca)
+        beattle.enciende()
+        beattle.acelera()
+        beattle.frena()
         Console.Read()
     End Sub
+    Class Auto
+        Public color = ""
+        Public modelo = 0
+        Public marca = ""
+        Public Sub enciende()
+            Console.WriteLine("El auto ha encendido run run")
+        End Sub
+        Public Sub acelera()
+            Console.WriteLine("El auto acelera")
+        End Sub
+        Public Sub frena()
+            Console.WriteLine("El auto frena")
+        End Sub
+    End Class
 End Module
