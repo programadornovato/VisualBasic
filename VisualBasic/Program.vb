@@ -6,19 +6,11 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim cal = New Calculadora()
-        Dim res = 0
-        Dim n1 = 1
-        Dim n2 = 2
-        Console.WriteLine("n1=" & n1 & vbLf & "n2=" & n2)
-        res = cal.suma(n1, n2)
-        Console.WriteLine("Suma=" & res)
-        res = cal.resta(n1, n2)
-        Console.WriteLine("Resta=" & res)
-        res = cal.multiplicar(n1, n2)
-        Console.WriteLine("Multiplicar=" & res)
-        Dim resD = cal.divicion(n1, n2)
-        Console.WriteLine("Divicion=" & resD)
+        Dim p1 = New Persona("Juan", 1)
+        'p1.inicializar("Juan", 1)
+        p1.mostrar()
+        Dim p2 = New Persona("Pepe", 2)
+        p2.mostrar()
         Console.Read()
     End Sub
 End Module
