@@ -6,10 +6,10 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim mat = New Trigonometria.Matematicas(5, 6)
-        Console.WriteLine(mat.suma())
-        Dim matAlgebra = New Algebra.Matematicas(5, 6)
-        Console.WriteLine(mat.suma())
+        Dim e1 = New Empleado()
+        e1.setEdad(40)
+        e1.setNombre("Juan")
+        Console.WriteLine("Nombre=" & e1.getNombre & " Edad=" & e1.getEdad)
         Console.Read()
     End Sub
 End Module
