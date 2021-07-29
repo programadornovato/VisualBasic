@@ -6,10 +6,22 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim e1 = New Empleado()
-        e1.setEdad(40)
-        e1.setNombre("Juan")
-        Console.WriteLine("Nombre=" & e1.getNombre & " Edad=" & e1.getEdad)
+        Dim c1 = New MiClase()
+        Dim c2 = New MiClase()
+        Console.WriteLine("c1.normal=" & c1.normal)
+        Console.WriteLine("c2.normal=" & c2.normal)
+        c1.normal = "C1 modificado"
+        Console.WriteLine("c1.normal=" & c1.normal)
+        Console.WriteLine("c2.normal=" & c2.normal)
+        Console.WriteLine("c1.estatico=" & c1.estatico)
+        Console.WriteLine("c2.estatico=" & c2.estatico)
+        c2.estatico = "Estatico modificado"
+        Console.WriteLine("c1.estatico=" & c1.estatico)
+        Console.WriteLine("c2.estatico=" & c2.estatico)
+        MiClase.estatico = "Estatico modificado desde la clase"
+        Console.WriteLine("c1.estatico=" & c1.estatico)
+        Console.WriteLine("c2.estatico=" & c2.estatico)
+
         Console.Read()
     End Sub
 End Module
