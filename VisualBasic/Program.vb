@@ -6,22 +6,24 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        Dim c1 = New MiClase()
-        Dim c2 = New MiClase()
-        Console.WriteLine("c1.normal=" & c1.normal)
-        Console.WriteLine("c2.normal=" & c2.normal)
-        c1.normal = "C1 modificado"
-        Console.WriteLine("c1.normal=" & c1.normal)
-        Console.WriteLine("c2.normal=" & c2.normal)
-        Console.WriteLine("c1.estatico=" & c1.estatico)
-        Console.WriteLine("c2.estatico=" & c2.estatico)
-        c2.estatico = "Estatico modificado"
-        Console.WriteLine("c1.estatico=" & c1.estatico)
-        Console.WriteLine("c2.estatico=" & c2.estatico)
-        MiClase.estatico = "Estatico modificado desde la clase"
-        Console.WriteLine("c1.estatico=" & c1.estatico)
-        Console.WriteLine("c2.estatico=" & c2.estatico)
-
+        Console.WriteLine("Humano que quieres calcular " & vbLf & "1.- Cuadrado " & vbLf & "2.- Rectangulo")
+        Dim opcion = Integer.Parse(Console.ReadLine())
+        Dim c As Cuadrilatero
+        If opcion = 1 Then
+            Console.WriteLine("Humano ingresa el lado de tu cuadrado ")
+            Dim lado = Double.Parse(Console.ReadLine())
+            c = New Cuadrilatero(lado)
+        ElseIf opcion = 2 Then
+            Console.WriteLine("Humano por favor ingresa el lado 1 de tu rectangulo")
+            Dim lado1 = Double.Parse(Console.ReadLine())
+            Console.WriteLine("Humano por favor ingresa el lado 2 de tu rectangulo")
+            Dim lado2 = Double.Parse(Console.ReadLine())
+            c = New Cuadrilatero(lado1, lado2)
+        Else
+            Console.WriteLine("Humano estupido esa opcion no existe")
+            Exit Sub
+        End If
+        Console.WriteLine("el perimetro es " & c.perimetro.ToString & " y el area es " & c.area.ToString)
         Console.Read()
     End Sub
 End Module
