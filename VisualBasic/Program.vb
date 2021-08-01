@@ -6,35 +6,14 @@ Imports System
 Module Program
     'Este codigo escribe un texto en amarillo con fondo azul
     Public Sub Main(args As String())
-        'listaNormal()
-        listaDinamica()
+        Dim c = New Carro(3) {}
+        c(0) = New Carro("654654", "Nissan", 2015)
+        c(1) = New TipoTurismo("TT65464", "Nissan", 2010, 3)
+        c(2) = New TipoDeportivo("DD6549/7", "Nissan", 2020, 8)
+        c(3) = New TipoFurgoneta("FFF54", "Nissan", 2021, 500)
+        For Each elemnto In c
+            Console.WriteLine(elemnto.retornarDatos)
+        Next
         Console.Read()
-    End Sub
-    Public Sub listaNormal()
-        Console.WriteLine("Humano por favor ingresa la cantidad de elementos")
-        Dim cantidad = Integer.Parse(Console.ReadLine())
-        Dim lista = New String(cantidad - 1) {}
-        For i = 0 To cantidad - 1
-            Console.WriteLine("Humano por favor ingresa el elemnto de la lista " & i + 1)
-            lista(i) = Console.ReadLine()
-        Next
-        For Each elemento In lista
-            Console.WriteLine(elemento)
-        Next
-    End Sub
-    Public Sub listaDinamica()
-        Dim lista = New ArrayList()
-        Dim respuesta As Char
-        Dim i = 0
-        Do
-            Console.WriteLine("Humano por favor ingresa el elemnto de la lista " & i + 1)
-            lista.Add(Console.ReadLine())
-            Console.WriteLine("Humano, quieres ingresar otro elemnto? s/n")
-            respuesta = Console.ReadLine()(0)
-            i = i + 1
-        Loop While (respuesta = "s" Or respuesta = "S")
-        For Each elemento In lista
-            Console.WriteLine(elemento)
-        Next
     End Sub
 End Module
